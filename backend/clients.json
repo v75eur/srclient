@@ -1,4 +1,15 @@
 {
   "topic": "sr-alertes-2026-09",
-  "clients": []
+  "clients": [
+    {
+      "key_hash": "04ed826aaba752c9ff69fa6ac360617edad26c583e7cc1d394a02df08478c0ff",
+      "key_preview": "SR-****-3C94",
+      "name": "Test1",
+      "created": "2026-09-12",
+      "expires": null,
+      "activated_at": null,
+      "device_id": null,
+      "active": true
+    }
+  ]
 }
