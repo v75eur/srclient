@@ -1,0 +1,119 @@
+/* ============ BASE (repris de srbot-site) ============ */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:#050508;color:#fff;min-height:100vh;background-image:radial-gradient(ellipse at 10% 20%,rgba(0,212,255,.05) 0,transparent 50%),radial-gradient(ellipse at 90% 80%,rgba(123,47,252,.05) 0,transparent 50%)}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer}
+input,select,textarea{font-family:inherit}
+
+/* ============ LAYOUT ============ */
+.page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem 1rem}
+.card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:20px;padding:2.5rem;max-width:520px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+
+/* ============ HEADER ============ */
+.logo{display:flex;align-items:center;gap:10px;font-size:1.4rem;font-weight:800;font-family:'JetBrains Mono',monospace;margin-bottom:1.5rem;justify-content:center}
+.logo-term{color:#00d4ff;font-size:1.5rem}
+.logo-text{background:linear-gradient(135deg,#00d4ff,#7b2ffc);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+h1{font-size:1.6rem;font-weight:800;text-align:center;margin-bottom:.5rem}
+.subtitle{text-align:center;color:rgba(255,255,255,.5);font-size:.9rem;margin-bottom:2rem;line-height:1.6}
+
+/* ============ FORMULAIRES ============ */
+.form-group{margin-bottom:1.2rem}
+.form-group label{display:block;font-size:.8rem;color:rgba(255,255,255,.5);font-weight:600;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:1px}
+.form-group input,.form-group select{width:100%;padding:.9rem 1.1rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;color:#fff;font-size:1rem;transition:all .2s}
+.form-group input:focus,.form-group select:focus{outline:0;border-color:rgba(0,212,255,.4);box-shadow:0 0 0 3px rgba(0,212,255,.08)}
+.form-group input::placeholder{color:rgba(255,255,255,.25)}
+.form-group input.error{border-color:rgba(255,95,87,.5)}
+
+/* ============ BOUTONS ============ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 1.8rem;border-radius:50px;border:0;font-weight:700;font-size:.95rem;transition:all .2s;cursor:pointer;width:100%}
+.btn-primary{background:linear-gradient(135deg,#00d4ff,#7b2ffc);color:#fff}
+.btn-primary:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 12px 35px rgba(0,212,255,.25)}
+.btn-primary:disabled{opacity:.6;cursor:not-allowed}
+.btn-secondary{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.1)}
+.btn-secondary:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2)}
+.btn-danger{background:rgba(255,95,87,.1);color:#ff5f57;border:1px solid rgba(255,95,87,.3)}
+.btn-danger:hover{background:rgba(255,95,87,.2)}
+.btn-success{background:rgba(40,200,64,.1);color:#28c840;border:1px solid rgba(40,200,64,.3)}
+.btn-success:hover{background:rgba(40,200,64,.2)}
+.btn-small{padding:.5rem 1rem;font-size:.8rem;width:auto}
+
+/* ============ MESSAGES ============ */
+.alert{padding:1rem 1.2rem;border-radius:12px;font-size:.9rem;margin-bottom:1.2rem;line-height:1.5}
+.alert-success{background:rgba(40,200,64,.08);border:1px solid rgba(40,200,64,.25);color:#28c840}
+.alert-error{background:rgba(255,95,87,.08);border:1px solid rgba(255,95,87,.25);color:#ff5f57}
+.alert-info{background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.25);color:#00d4ff}
+.alert strong{font-weight:700}
+
+/* ============ RÉSULTAT ACTIVATION ============ */
+.result-box{background:rgba(0,212,255,.04);border:1px solid rgba(0,212,255,.2);border-radius:16px;padding:1.5rem;margin-top:1.5rem;text-align:center}
+.result-box h3{color:#28c840;margin-bottom:.5rem;font-size:1.1rem}
+.result-box .topic{font-family:'JetBrains Mono',monospace;background:#08080f;border:1px solid rgba(255,255,255,.08);padding:.8rem 1rem;border-radius:10px;margin:.8rem 0;color:#00d4ff;word-break:break-all;font-size:.9rem}
+.result-box .info{color:rgba(255,255,255,.5);font-size:.85rem;margin:.5rem 0}
+.result-box .btn{margin-top:1rem}
+
+/* ============ DASHBOARD ADMIN ============ */
+.admin-page{padding:2rem 1rem;max-width:1200px;margin:0 auto;min-height:100vh}
+.admin-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,.06)}
+.admin-header h1{text-align:left;font-size:1.4rem;margin:0}
+.admin-actions{display:flex;gap:.6rem;flex-wrap:wrap}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin-bottom:2rem}
+.stat-box{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:1.2rem;text-align:center}
+.stat-box .num{font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#00d4ff,#7b2ffc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:block}
+.stat-box .lbl{font-size:.75rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:1px;margin-top:.3rem}
+.stat-box.active .num{background:linear-gradient(135deg,#28c840,#00d4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-box.expired .num{background:linear-gradient(135deg,#ff5f57,#ffbd2e);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-box.pending .num{background:linear-gradient(135deg,#ffbd2e,#ff5f57);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+/* TABLEAU */
+.table-wrap{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:16px;overflow:hidden;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:800px}
+thead{background:rgba(255,255,255,.03)}
+th{text-align:left;padding:1rem;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.4);border-bottom:1px solid rgba(255,255,255,.06)}
+td{padding:1rem;border-bottom:1px solid rgba(255,255,255,.04)}
+tr:last-child td{border-bottom:0}
+tr:hover{background:rgba(255,255,255,.02)}
+.key-cell{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:#00d4ff}
+.device-cell{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:rgba(255,255,255,.4)}
+.actions-cell{display:flex;gap:.4rem;flex-wrap:wrap}
+.actions-cell .btn{padding:.35rem .7rem;font-size:.7rem;width:auto}
+
+/* BADGES STATUT */
+.badge-status{display:inline-flex;align-items:center;gap:.3rem;padding:.3rem .7rem;border-radius:50px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.badge-active{background:rgba(40,200,64,.15);color:#28c840}
+.badge-pending{background:rgba(255,189,46,.15);color:#ffbd2e}
+.badge-expired{background:rgba(255,95,87,.15);color:#ff5f57}
+.badge-disabled{background:rgba(128,128,128,.15);color:#888}
+
+/* MODAL */
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.85);z-index:9999;justify-content:center;align-items:center;padding:1rem}
+.modal.show{display:flex;animation:fadeIn .2s}
+.modal-content{background:#15152a;border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:2rem;max-width:480px;width:100%;position:relative;animation:scaleIn .2s}
+.modal-content h3{margin-bottom:1rem}
+.modal-close{position:absolute;top:12px;right:16px;background:0;border:0;color:rgba(255,255,255,.3);font-size:1.3rem;line-height:1;cursor:pointer}
+.modal-close:hover{color:#fff}
+
+/* LOGIN ADMIN */
+.login-box{max-width:400px;margin:8rem auto 0}
+
+/* SPINNER */
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.2);border-top-color:#fff;border-radius:50%;animation:spin .6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ANIMATIONS */
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
+
+/* FOOTER */
+.footer{text-align:center;padding:2rem 1rem;color:rgba(255,255,255,.2);font-size:.75rem}
+.footer a{color:rgba(255,255,255,.4)}
+.footer a:hover{color:#00d4ff}
+
+/* RESPONSIVE */
+@media(max-width:640px){
+    .card{padding:1.5rem}
+    h1{font-size:1.3rem}
+    .admin-header{flex-direction:column;align-items:flex-start}
+    .admin-actions{width:100%}
+    .admin-actions .btn{flex:1}
+}
