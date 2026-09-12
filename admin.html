@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin — SR Client</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ============ LOGIN ============ -->
+<div id="loginView" class="login-box">
+    <div class="card">
+        <div class="logo">
+            <span class="logo-term">🔐</span>
+            <span class="logo-text">SR Admin</span>
+        </div>
+        <h1>Connexion admin</h1>
+        <p class="subtitle">Entrez votre mot de passe administrateur.</p>
+        <div id="loginAlert" style="display:none"></div>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" placeholder="••••••••" required autocomplete="current-password">
+            </div>
+            <button type="submit" class="btn btn-primary" id="loginBtn">
+                <span id="loginBtnText">🔓 Se connecter</span>
+                <span id="loginBtnLoader" style="display:none"><span class="spinner"></span> Connexion…</span>
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- ============ DASHBOARD ============ -->
+<div id="dashboardView" class="admin-page" style="display:none">
+    <div class="admin-header">
+        <div>
+            <h1>🔐 Dashboard Admin</h1>
+            <p style="color:rgba(255,255,255,.4);font-size:.85rem;margin-top:.3rem">
+                Topic actif : <code id="topicDisplay" style="color:#00d4ff">—</code>
+            </p>
+        </div>
+        <div class="admin-actions">
+            <button class="btn btn-primary btn-small" id="newKeyBtn">+ Nouvelle clé</button>
+            <button class="btn btn-secondary btn-small" id="refreshBtn">🔄 Rafraîchir</button>
+            <button class="btn btn-danger btn-small" id="logoutBtn">Déconnexion</button>
+        </div>
+    </div>
+
+    <div id="dashboardAlert" style="display:none"></div>
+
+    <div class="stats" id="stats">
+        <div class="stat-box">
+            <span class="num" id="statTotal">0</span>
+            <span class="lbl">Total</span>
+        </div>
+        <div class="stat-box active">
+            <span class="num" id="statActive">0</span>
+            <span class="lbl">Actifs</span>
+        </div>
+        <div class="stat-box pending">
+            <span class="num" id="statPending">0</span>
+            <span class="lbl">En attente</span>
+        </div>
+        <div class="stat-box expired">
+            <span class="num" id="statExpired">0</span>
+            <span class="lbl">Expirés</span>
+        </div>
+    </div>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Clé</th>
+                    <th>Statut</th>
+                    <th>Expire</th>
+                    <th>Device</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="clientsBody">
+                <tr><td colspan="6" style="text-align:center;padding:2rem;color:rgba(255,255,255,.3)">Chargement…</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="footer">
+        SR Client Admin &copy; 2026
+    </div>
+</div>
+
+<!-- ============ MODAL NOUVELLE CLÉ ============ -->
+<div class="modal" id="newKeyModal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal('newKeyModal')">&times;</button>
+        <h3>➕ Nouvelle clé</h3>
+        <div id="newKeyAlert" style="display:none"></div>
+        <form id="newKeyForm">
+            <div class="form-group">
+                <label for="newKeyName">Nom du client</label>
+                <input type="text" id="newKeyName" placeholder="Ex: Jean Dupont" required>
+            </div>
+            <button type="submit" class="btn btn-primary" id="newKeySubmit">
+                <span id="newKeyBtnText">Générer la clé</span>
+                <span id="newKeyBtnLoader" style="display:none"><span class="spinner"></span> Génération…</span>
+            </button>
+        </form>
+        <div id="newKeyResult" style="display:none"></div>
+    </div>
+</div>
+
+<!-- ============ MODAL CONFIRMATION ============ -->
+<div class="modal" id="confirmModal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal('confirmModal')">&times;</button>
+        <h3 id="confirmTitle">Confirmer</h3>
+        <p id="confirmMsg" style="color:rgba(255,255,255,.6);margin:1rem 0;line-height:1.6"></p>
+        <div style="display:flex;gap:.6rem;margin-top:1rem">
+            <button class="btn btn-secondary" onclick="closeModal('confirmModal')">Annuler</button>
+            <button class="btn btn-danger" id="confirmBtn">Confirmer</button>
+        </div>
+    </div>
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>
