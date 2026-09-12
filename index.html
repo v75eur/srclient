@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SR Bot — Activation de votre essai gratuit 30 jours">
+    <meta name="theme-color" content="#050508">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Activation — SR Bot</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💹</text></svg>">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="page">
+    <div class="card" id="card">
+        <div class="logo">
+            <span class="logo-term">$</span>
+            <span class="logo-text">SR Bot</span>
+        </div>
+
+        <h1>Activer votre essai</h1>
+        <p class="subtitle">
+            Entrez la clé que vous avez reçue pour activer<br>
+            votre essai gratuit de <strong style="color:#00d4ff">30 jours</strong>.
+        </p>
+
+        <div id="alert" style="display:none"></div>
+
+        <form id="activateForm" autocomplete="off">
+            <div class="form-group">
+                <label for="key">Votre clé d'activation</label>
+                <input
+                    type="text"
+                    id="key"
+                    placeholder="SR-XXXX-XXXX"
+                    autocomplete="off"
+                    autocapitalize="characters"
+                    spellcheck="false"
+                    required
+                >
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="submitBtn">
+                <span id="btnText">🔓 Activer mon essai</span>
+                <span id="btnLoader" style="display:none"><span class="spinner"></span> Vérification…</span>
+            </button>
+        </form>
+
+        <div id="result" style="display:none"></div>
+    </div>
+</div>
+
+<div class="footer">
+    SR Bot &copy; 2026 — <a href="https://wa.me/22960315458" target="_blank">Support WhatsApp</a>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
