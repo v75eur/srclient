@@ -273,15 +273,31 @@ async function deleteClient(name) {
 function closeModal(id) {
     document.getElementById(id).classList.remove('show');
 }
-
 // ============ INIT ============
+// On cache TOUT au départ, puis on décide quoi afficher
+document.getElementById('loginView').style.display = 'none';
+document.getElementById('dashboardView').style.display = 'none';
+
 if (adminPassword) {
-    // Vérifie que le mot de passe stocké est toujours valide
+    // Il y a un mot de passe stocké → on essaie de se reconnecter
     api('/admin/clients')
-        .then(showDashboard)
-        .catch(() => logout());
+        .then(() => showDashboard())
+        .catch(() => {
+            // Échec (mauvais mdp, backend endormi, etc.) → on montre le login
+            adminPassword = '';
+            localStorage.removeItem(PWD_KEY);
+            document.getElementById('loginView').style.display = 'block';
+        });
 } else {
+    // Pas de mot de passe stocké → login direct
     document.getElementById('loginView').style.display = 'block';
 }
+
+// Cache le dashboard dès qu'on appelle logout
+const _origLogout = logout;
+logout = function() {
+    _origLogout();
+    document.getElementById('dashboardView').style.display = 'none';
+};
 
 console.log('%c SR Client Admin chargé', 'color:#00d4ff;font-weight:bold');
